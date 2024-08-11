@@ -27,9 +27,7 @@
           programs.zsh.enable = true;
           environment.shells = [ pkgs.bash pkgs.zsh ];
           environment.loginShell = pkgs.zsh;
-          environment.variables = {
-            LANG = "en_US.UTF-8";
-          };
+          environment.variables = { LANG = "en_US.UTF-8"; };
           environment.systemPackages = with pkgs; [ git curl coreutils zoxide ];
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToControl = true;
@@ -132,10 +130,8 @@
                   CLICLOLOR = 1;
                   EDITOR = "emacsclient";
                 };
-                home.sessionPath = [
-                  "$HOME/.local/bin"
-                  "$HOME/github.com/noorul/notebook/bin"
-                ];
+                home.sessionPath =
+                  [ "$HOME/.local/bin" "$HOME/github.com/noorul/notebook/bin" ];
                 programs.bat.enable = true;
                 programs.bat.config.theme = "TwoDark";
                 programs.fzf.enable = true;
