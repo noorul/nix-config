@@ -114,7 +114,9 @@
                   less
                   nil
                   ripgrep
+                  rust-analyzer
                   rustc
+                  rustup
                   shellcheck
                   shfmt
                   teleport_15
