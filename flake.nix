@@ -114,7 +114,6 @@
                   less
                   nil
                   ripgrep
-                  rust-analyzer
                   rustc
                   rustup
                   shellcheck
