@@ -27,6 +27,9 @@
           programs.zsh.enable = true;
           environment.shells = [ pkgs.bash pkgs.zsh ];
           environment.loginShell = pkgs.zsh;
+          environment.variables = {
+            LANG = "en_US.UTF-8";
+          };
           environment.systemPackages = with pkgs; [ git curl coreutils zoxide ];
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToControl = true;
