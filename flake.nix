@@ -117,6 +117,7 @@
                   ledger
                   less
                   nil
+                  nixfmt
                   ripgrep
                   rustc
                   rustup
