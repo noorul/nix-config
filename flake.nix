@@ -17,6 +17,7 @@
       pkgs = import inputs.nixpkgs {
         system = "x86_64-darwin";
         config.allowUnfree = true;
+        config.i18n.defaultLocale = "en_US.UTF-8";
       };
       modules = [
         { users.users.noorul.home = "/Users/noorul"; }
