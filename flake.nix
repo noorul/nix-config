@@ -7,6 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
@@ -18,6 +22,7 @@
         system = "x86_64-darwin";
         config.allowUnfree = true;
         config.i18n.defaultLocale = "en_US.UTF-8";
+        overlays = [ inputs.rust-overlay.overlays.default ];
       };
       modules = [
         { users.users.noorul.home = "/Users/noorul"; }
@@ -117,8 +122,9 @@
                   nil
                   nixfmt
                   ripgrep
-                  rustc
-                  rustup
+                  (rust-bin.stable.latest.default.override {
+                    extensions = [ "rust-analyzer" ];
+                  })
                   shellcheck
                   shfmt
                   teleport_15
