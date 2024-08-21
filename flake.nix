@@ -14,12 +14,12 @@
   };
 
   outputs = inputs: {
-    formatter.x86_64-darwin =
-      inputs.nixpkgs.legacyPackages.x86_64-darwin.nixfmt;
-    darwinConfigurations.HPE-C02GD3C4ML85 = inputs.darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
+    formatter.aarch64-darwin =
+      inputs.nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+    darwinConfigurations.HPE-FHPMJKN7TQ = inputs.darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
       pkgs = import inputs.nixpkgs {
-        system = "x86_64-darwin";
+        system = "aarch64-darwin";
         config.allowUnfree = true;
         config.i18n.defaultLocale = "en_US.UTF-8";
         overlays = [ inputs.rust-overlay.overlays.default ];
