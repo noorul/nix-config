@@ -88,6 +88,7 @@
               "mosh"
               "ncurses"
               "pkg-config"
+              "poetry"
               "ripgrep"
               "sqlite"
               "tree-sitter"
@@ -137,7 +138,11 @@
                   EDITOR = "emacsclient";
                 };
                 home.sessionPath =
-                  [ "$HOME/.local/bin" "$HOME/github.com/noorul/notebook/bin" ];
+                  [ "$HOME/.local/bin"
+                    "$HOME/github.com/noorul/notebook/bin"
+                    "/opt/homebrew/bin"
+                    "/Applications/Emacs.app/Contents/MacOS/bin"
+                  ];
                 programs.bat.enable = true;
                 programs.bat.config.theme = "TwoDark";
                 programs.fzf.enable = true;
@@ -152,8 +157,8 @@
                   shellAliases = { ls = "ls --color=auto -F"; };
                   initExtra = ''
                     # Load secrets at shell startup
+                    eval $(/opt/homebrew/bin/brew shellenv)
                     source /Users/noorul/.secrets
-                    poetry completions zsh > ~/.zfunc/_poetry
                   '';
                 };
                 programs.starship.enable = true;
