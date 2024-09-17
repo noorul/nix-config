@@ -54,7 +54,7 @@
 
           homebrew = {
             enable = true;
-            onActivation.update = true;
+            onActivation.autoUpdate = true;
             onActivation.upgrade = true;
             caskArgs.no_quarantine = true;
             global.brewfile = true;
