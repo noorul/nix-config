@@ -96,7 +96,7 @@
               "yq"
               "zlib"
             ];
-            casks = [ "firefox" "google-chrome" "slack" "temurin@17" "docker" ];
+            casks = [ "firefox" "google-chrome" "slack" "temurin@17" "docker" "brave-browser"];
           };
         })
         inputs.home-manager.darwinModules.home-manager
