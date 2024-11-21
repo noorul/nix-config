@@ -140,6 +140,7 @@
                 home.sessionPath =
                   [ "$HOME/.local/bin"
                     "$HOME/github.com/noorul/notebook/bin"
+                    "$HOME/go/bin"
                     "/opt/homebrew/bin"
                     "/Applications/Emacs.app/Contents/MacOS/bin"
                   ];
