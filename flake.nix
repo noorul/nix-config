@@ -31,7 +31,10 @@
           services.nix-daemon.enable = true;
           programs.zsh.enable = true;
           environment.shells = [ pkgs.bash pkgs.zsh ];
-          environment.variables = { LANG = "en_US.UTF-8"; };
+          environment.variables = {
+            LANG = "en_US.UTF-8";
+            JAVA_HOME = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home";
+          };
           environment.systemPackages = with pkgs; [ git curl coreutils zoxide ];
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToControl = true;
