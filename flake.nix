@@ -85,6 +85,10 @@
               "libxml2"
               "mailutils"
               "make"
+              {
+                name = "maven";
+                args = ["ignore-dependencies"];
+              }
               "mosh"
               "ncurses"
               "pkg-config"
