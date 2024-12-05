@@ -156,7 +156,15 @@
                 programs.fzf.enable = true;
                 programs.fzf.enableZshIntegration = true;
                 programs.eza.enable = true;
-                programs.git.enable = true;
+                programs.git = {
+                  enable = true;
+                  userName = "Noorul Islam K M";
+                  userEmail = "noorul@noorul.com";
+                  ignores = [ ".projectile" ];
+                  extraConfig = {
+                    github = { user = "noorul"; };
+                  };
+                };
                 programs.zsh = {
                   enable = true;
                   enableCompletion = true;
