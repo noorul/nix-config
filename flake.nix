@@ -117,6 +117,7 @@
                 xdg.enable = true;
                 # specify my home-manager configs
                 home.packages = with pkgs; [
+                  argocd
                   awscli2
                   curl
                   datree
