@@ -43,6 +43,7 @@
             "/Applications/Emacs.app"
             "/Applications/Firefox.app"
             "/Applications/Slack.app"
+            "/Applications/Brave Browser.app"
           ];
 
           # backwards compat; don't change
