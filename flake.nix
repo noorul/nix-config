@@ -96,7 +96,6 @@
               "mosh"
               "ncurses"
               "pkg-config"
-              "poetry"
               "ripgrep"
               "sqlite"
               "tree-sitter"
