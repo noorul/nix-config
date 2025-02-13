@@ -136,6 +136,7 @@
                   })
                   shellcheck
                   shfmt
+                  stern
                   teleport_15
                   terraform
                   terraform-ls
