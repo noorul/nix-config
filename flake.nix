@@ -28,7 +28,6 @@
         { users.users.noorul.home = "/Users/noorul"; }
         ({ pkgs, ... }: {
           # here go the darwin preferences and config items
-          services.nix-daemon.enable = true;
           programs.zsh.enable = true;
           environment.shells = [ pkgs.bash pkgs.zsh ];
           environment.variables = {
