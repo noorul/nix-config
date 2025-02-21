@@ -68,6 +68,7 @@
               "dbus"
               "fontconfig"
               "gcc"
+              "graphviz"
               "glib"
               "gnupg"
               "gnu-sed"
