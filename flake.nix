@@ -129,7 +129,7 @@
                   ledger
                   less
                   nil
-                  nixfmt
+                  nixfmt-rfc-style
                   ripgrep
                   (rust-bin.stable.latest.default.override {
                     extensions = [ "rust-analyzer" ];
