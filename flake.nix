@@ -71,6 +71,7 @@
               "graphviz"
               "glib"
               "gnupg"
+              "gnuplot"
               "gnu-sed"
               "gnutls"
               "gmp"
