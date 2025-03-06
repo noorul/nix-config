@@ -134,6 +134,7 @@
                   gnupg
                   go
                   hadolint
+                  hledger
                   ispell
                   ledger
                   less
