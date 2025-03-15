@@ -95,6 +95,7 @@
                 args = ["ignore-dependencies"];
               }
               "mosh"
+              "ollama"
               "ncurses"
               "pkg-config"
               "ripgrep"
