@@ -79,6 +79,7 @@
               "imagemagick"
               "ispell"
               "jansson"
+              "jfrog-cli"
               "jq"
               "libev"
               "libffi"
