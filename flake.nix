@@ -174,7 +174,11 @@
                   enable = true;
                   userName = "Noorul Islam K M";
                   userEmail = "noorul@noorul.com";
-                  ignores = [ ".projectile" ];
+                  ignores =
+                    [
+                      ".projectile"
+                      ".dir-locals.el"
+                    ];
                   extraConfig = {
                     github = { user = "noorul"; };
                   };
