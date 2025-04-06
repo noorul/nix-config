@@ -149,7 +149,7 @@
                   shellcheck
                   shfmt
                   stern
-                  teleport_15
+                  teleport_16
                   terraform
                   terraform-ls
                   trivy
