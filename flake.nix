@@ -152,6 +152,7 @@
                   teleport_16
                   terraform
                   terraform-ls
+                  tree
                   trivy
                 ];
                 home.sessionVariables = {
