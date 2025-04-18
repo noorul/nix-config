@@ -142,6 +142,7 @@
                   less
                   nil
                   nixfmt-rfc-style
+                  pandoc
                   ripgrep
                   (rust-bin.stable.latest.default.override {
                     extensions = [ "rust-analyzer" ];
