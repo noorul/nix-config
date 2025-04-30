@@ -155,6 +155,7 @@
                   terraform-ls
                   tree
                   trivy
+                  uv
                 ];
                 home.sessionVariables = {
                   CLICLOLOR = 1;
