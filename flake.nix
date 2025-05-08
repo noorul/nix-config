@@ -155,7 +155,6 @@
                   terraform-ls
                   tree
                   trivy
-                  uv
                 ];
                 home.sessionVariables = {
                   CLICLOLOR = 1;
@@ -203,6 +202,7 @@
                 programs.starship.settings = { command_timeout = 1800000; };
                 programs.pyenv.enable = true;
                 programs.pyenv.enableZshIntegration = true;
+                programs.uv.enable = true;
                 home.file.".inputrc".text = ''
                   set show-all-if-ambiguous on
                   set completion-ignore-case on
