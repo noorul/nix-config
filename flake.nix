@@ -132,6 +132,7 @@
                   awscli2
                   curl
                   datree
+                  dos2unix
                   fd
                   gnupg
                   go
