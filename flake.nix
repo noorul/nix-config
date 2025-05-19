@@ -35,6 +35,7 @@
             JAVA_HOME = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home";
           };
           environment.systemPackages = with pkgs; [ git curl coreutils zoxide ];
+          system.primaryUser = "noorul";
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToControl = true;
 
