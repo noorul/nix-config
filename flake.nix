@@ -193,7 +193,7 @@
                   autosuggestion.enable = true;
                   syntaxHighlighting.enable = true;
                   shellAliases = { ls = "ls --color=auto -F"; };
-                  initExtra = ''
+                  initContent = ''
                     # Load secrets at shell startup
                     eval $(/opt/homebrew/bin/brew shellenv)
                     source /Users/noorul/.secrets
