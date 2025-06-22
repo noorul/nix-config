@@ -131,6 +131,7 @@
                 home.packages = with pkgs; [
                   argocd
                   awscli2
+                  buf
                   curl
                   datree
                   dos2unix
