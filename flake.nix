@@ -111,6 +111,7 @@
               "docker"
               "firefox"
               "google-chrome"
+              "iterm2"
               "slack"
               "temurin@17"
               "visual-studio-code"
