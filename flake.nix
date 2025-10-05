@@ -112,6 +112,7 @@
               "firefox"
               "google-chrome"
               "iterm2"
+              "mactex"
               "slack"
               "temurin@17"
               "visual-studio-code"
@@ -170,6 +171,7 @@
                     "$HOME/go/bin"
                     "/opt/homebrew/bin"
                     "/Applications/Emacs.app/Contents/MacOS/bin"
+                    "/usr/local/texlive/2025/bin/universal-darwin"
                   ];
                 programs.bat.enable = true;
                 programs.bat.config.theme = "TwoDark";
