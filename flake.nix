@@ -96,6 +96,7 @@
                 name = "maven";
                 args = ["ignore-dependencies"];
               }
+              "miller"
               "mosh"
               "ollama"
               "ncurses"
