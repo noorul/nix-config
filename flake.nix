@@ -139,6 +139,7 @@
                   datree
                   dos2unix
                   fd
+                  glow
                   gnupg
                   go
                   hadolint
