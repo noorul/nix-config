@@ -109,7 +109,7 @@
             ];
             casks = [
               "brave-browser"
-              "docker"
+              "docker-desktop"
               "firefox"
               "google-chrome"
               "iterm2"
