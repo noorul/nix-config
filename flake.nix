@@ -157,7 +157,7 @@
                   shellcheck
                   shfmt
                   stern
-                  teleport_16
+                  teleport
                   terraform
                   terraform-ls
                   tree
