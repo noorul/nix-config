@@ -88,6 +88,7 @@
               "libiconv"
               "librsvg"
               "libtasn1"
+              "libtree-sitter"
               "libunistring"
               "libxml2"
               "mailutils"
