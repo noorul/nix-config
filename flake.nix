@@ -135,6 +135,7 @@
                 home.packages = with pkgs; [
                   argocd
                   awscli2
+                  bats
                   buf
                   curl
                   datree
