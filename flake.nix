@@ -150,7 +150,7 @@
                   ledger
                   less
                   nil
-                  nixfmt-rfc-style
+                  nixfmt
                   pandoc
                   ripgrep
                   (rust-bin.stable.latest.default.override {
