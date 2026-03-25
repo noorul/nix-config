@@ -27,6 +27,7 @@
       modules = [
         { users.users.noorul.home = "/Users/noorul"; }
         ({ pkgs, ... }: {
+          nix.package = pkgs.nixVersions.latest;
           # here go the darwin preferences and config items
           programs.zsh.enable = true;
           environment.shells = [ pkgs.bash pkgs.zsh ];
