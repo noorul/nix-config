@@ -127,7 +127,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.noorul.imports = [
-              ({ pkgs, ... }: {
+              ({ pkgs, config, ... }: {
                 # Don't change this when you change package input. Leave it alone.
                 home.stateVersion = "24.05";
                 xdg.enable = true;
@@ -184,19 +184,21 @@
                 programs.eza.enable = true;
                 programs.git = {
                   enable = true;
-                  userName = "Noorul Islam K M";
-                  userEmail = "noorul@noorul.com";
                   ignores =
                     [
                       ".projectile"
                       ".dir-locals.el"
                     ];
-                  extraConfig = {
+                  signing.format = null;
+                  settings = {
+                    user.name = "Noorul Islam K M";
+                    user.email = "noorul@noorul.com";
                     github = { user = "noorul"; };
                   };
                 };
                 programs.zsh = {
                   enable = true;
+                  dotDir = config.home.homeDirectory;
                   enableCompletion = true;
                   autosuggestion.enable = true;
                   syntaxHighlighting.enable = true;
