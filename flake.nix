@@ -165,6 +165,7 @@
                   terraform-ls
                   tree
                   trivy
+                  zizmor
                 ];
                 home.sessionVariables = {
                   CLICLOLOR = 1;
