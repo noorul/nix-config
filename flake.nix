@@ -159,6 +159,7 @@
                   })
                   shellcheck
                   shfmt
+                  sshpass
                   stern
                   teleport
                   terraform
