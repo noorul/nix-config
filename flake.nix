@@ -138,6 +138,7 @@
                   awscli2
                   bats
                   buf
+                  claude-code
                   curl
                   datree
                   dos2unix
