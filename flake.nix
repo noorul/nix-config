@@ -143,6 +143,7 @@
                   datree
                   dos2unix
                   fd
+                  github-cli
                   glow
                   gnupg
                   go
