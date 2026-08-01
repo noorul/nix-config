@@ -34,4 +34,40 @@
     (iosevka-bin.override { variant = "SS05"; })
     (iosevka-bin.override { variant = "Etoile"; })
   ];
+
+  # Apps pinned to the Dock, in order. Nix-darwin's app-linking activation
+  # script symlinks environment.systemPackages .app bundles into
+  # /Applications/Nix Apps, hence the Emacs path below.
+  system.defaults.dock.persistent-apps = [
+    "/Applications/Nix Apps/Emacs.app"
+    "/Applications/Firefox.app"
+    "/Applications/Brave Browser.app"
+  ];
+
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = false;
+      upgrade = false;
+      # The locked nix-darwin emits `--force-cleanup` for "uninstall", which
+      # makes cleanup non-interactive without forcing package installation.
+      # Do not add Homebrew Bundle's generic `--force`: it is forwarded to
+      # installs as `--force/--overwrite`, replacing cask app bundles while
+      # retaining their user state (which can corrupt in-app updater state).
+      # Matches jwiegley/nix-config's config/darwin.nix.
+      cleanup = "uninstall";
+    };
+
+    casks = [
+      {
+        name = "brave-browser";
+        greedy = true;
+      }
+      {
+        name = "firefox";
+        greedy = true;
+      }
+      "docker-desktop"
+    ];
+  };
 }
