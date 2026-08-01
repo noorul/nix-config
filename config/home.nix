@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   username,
   agentPackages,
   ...
@@ -30,7 +31,20 @@ in
   home.sessionVariables = {
     EDITOR = "emacsclient";
     CLICOLOR = 1;
+    # aspell and aspellDicts.en are separate Nix packages that don't know
+    # about each other by default; point aspell at an explicit config file
+    # that wires the dictionary in, or Flyspell fails with "No word lists
+    # can be found for the language en_US". Matches jwiegley/nix-config's
+    # config/johnw.nix.
+    ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
   };
+
+  xdg.configFile."aspell/config".text = ''
+    local-data-dir ${pkgs.aspell}/lib/aspell
+    data-dir ${pkgs.aspellDicts.en}/lib/aspell
+    personal ${config.xdg.configHome}/aspell/en_US.personal
+    repl ${config.xdg.configHome}/aspell/en_US.repl
+  '';
 
   # Nix-native replacement for the mactex Homebrew cask -- scheme-full is
   # the same scope as MacTeX itself, not a lighter substitute. Matches
