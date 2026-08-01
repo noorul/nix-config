@@ -25,10 +25,18 @@
       url = "github:emacs-mirror/emacs/d31d3245ba44c852356cb28e4dcc395df5ab0e3e";
       flake = false;
     };
+
+    # Fast-moving AI agent CLIs (claude-code et al.), updated more often
+    # than nixpkgs' own packaging. Matches jwiegley/nix-config's use of
+    # this same flake for the same reason.
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, nixpkgs, darwin, home-manager, emacs-src }:
+    { self, nixpkgs, darwin, home-manager, emacs-src, llm-agents }:
     let
       system = "aarch64-darwin";
       username = "noorul";
@@ -53,7 +61,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "hm-bak";
-              extraSpecialArgs = { inherit username; };
+              extraSpecialArgs = {
+                inherit username;
+                agentPackages = llm-agents.packages.${system};
+              };
               users.${username} = import ./config/home.nix;
             };
           }

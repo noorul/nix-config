@@ -1,4 +1,9 @@
-{ pkgs, username, ... }@args:
+{
+  pkgs,
+  username,
+  agentPackages,
+  ...
+}@args:
 
 let
   packages = import ./packages.nix args;

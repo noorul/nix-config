@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, agentPackages, ... }:
 with pkgs;
+let
+  # Matches jwiegley/nix-config's optAgent: a package sourced from
+  # agentPackages (the numtide/llm-agents.nix flake) may not exist for
+  # every system/revision, so degrade to an empty list instead of an
+  # eval failure if it's missing.
+  optAgent = name: if agentPackages ? ${name} then [ agentPackages.${name} ] else [ ];
+in
 {
   # Organized the way jwiegley/nix-config does it: one list, banner-commented
   # by theme, rather than one undifferentiated dump.
@@ -24,5 +31,7 @@ with pkgs;
     # glibtool is nixpkgs' GNU libtool built with --program-prefix=g,
     # matching Homebrew's naming convention for exactly this reason.
     glibtool
-  ];
+  ]
+  # ── AI Agents ──────────────────────────────────────────────────────
+  ++ optAgent "claude-code";
 }
