@@ -19,6 +19,11 @@ in
   # jwiegley/nix-config's structure, rather than inlined here.
   home.packages = packages.package-list;
 
+  home.sessionVariables = {
+    EDITOR = "emacsclient";
+    CLICOLOR = 1;
+  };
+
   # Nix-native replacement for the mactex Homebrew cask -- scheme-full is
   # the same scope as MacTeX itself, not a lighter substitute. Matches
   # jwiegley/nix-config's config/johnw.nix. Emits a deprecation warning
