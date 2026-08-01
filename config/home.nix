@@ -28,6 +28,16 @@ in
   # jwiegley/nix-config's structure, rather than inlined here.
   home.packages = packages.package-list;
 
+  # Homebrew's own bin dirs, so brew-installed binaries are on PATH without
+  # needing an imperative `eval "$(brew shellenv)"` in ~/.zprofile -- which
+  # home-manager would overwrite anyway, since it manages that file once
+  # programs.zsh.enable is on. Matches jwiegley/nix-config's config/johnw.nix
+  # (home.sessionPath's "/opt/homebrew/bin" entry).
+  home.sessionPath = [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+  ];
+
   home.sessionVariables = {
     EDITOR = "emacsclient";
     CLICOLOR = 1;
