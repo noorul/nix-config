@@ -4,6 +4,7 @@
     ignores = [
       ".projectile"
       ".dir-locals.el"
+      "settings.local.json"
     ];
     signing.format = null;
     settings = {
