@@ -11,6 +11,14 @@ in
 {
   imports = [ ./git.nix ];
 
+  # nix-darwin's programs.zsh.enable (config/darwin.nix) only sets zsh as the
+  # system default shell -- it doesn't hook home-manager's session variables
+  # (home.sessionVariables, e.g. ASPELL_CONF/EDITOR/CLICOLOR below) into shell
+  # startup. Without home-manager's own programs.zsh managing ~/.zshenv,
+  # nothing sources /etc/profiles/per-user/${username}/etc/profile.d/hm-session-vars.sh,
+  # so those variables are generated but never actually exported anywhere.
+  programs.zsh.enable = true;
+
   home.username = username;
   home.homeDirectory = "/Users/${username}";
   home.stateVersion = "24.11";
