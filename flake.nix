@@ -22,7 +22,7 @@
     # that fingerprint -- and therefore the eln-cache -- stable across
     # ordinary rebuilds. Bump this rev deliberately when you want to update.
     emacs-src = {
-      url = "github:emacs-mirror/emacs/d31d3245ba44c852356cb28e4dcc395df5ab0e3e";
+      url = "github:emacs-mirror/emacs/65eff4fd4f4d9cb5d9fcd9f88a018b5d2a1ba78e";
       flake = false;
     };
 
