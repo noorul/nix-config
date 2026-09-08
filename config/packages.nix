@@ -39,5 +39,6 @@ in
     gnupg
   ]
   # ── AI Agents ──────────────────────────────────────────────────────
-  ++ optAgent "claude-code";
+  ++ optAgent "claude-code"
+  ++ optAgent "codex";
 }
