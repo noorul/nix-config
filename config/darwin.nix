@@ -68,6 +68,7 @@
         greedy = true;
       }
       "docker-desktop"
+      "vlc"
     ];
   };
 }
