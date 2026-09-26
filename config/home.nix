@@ -68,4 +68,6 @@ in
       inherit (tpkgs) scheme-full texdoc latex2e-help-texinfo;
     };
   };
+
+  programs.uv.enable = true;
 }
