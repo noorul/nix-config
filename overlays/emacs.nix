@@ -35,8 +35,16 @@ final: prev: {
         # matters here too: emacs30's patch list also carries CVE/compat
         # backports fetched for the exact 30.2 release tarball, which fail
         # to apply against our diverged emacs-31 branch checkout (hunks
-        # don't match). emacs31 in nixpkgs carries no such extra patches.
-        patches = attrs.patches ++ prev.lib.optionals prev.stdenv.isDarwin [ ./emacs/patches/nsthread.patch ];
+        # don't match).
+        #
+        # emacs31 itself now also carries a backport (CVE-2024-53920.patch)
+        # fetched against the 31.1 release tarball. Our pinned emacs-src
+        # revision is a later trunk commit that already contains that fix
+        # upstream, so re-applying the backport fails with "Reversed (or
+        # previously applied) patch detected" -- drop it by name.
+        patches =
+          (builtins.filter (p: (p.name or "") != "CVE-2024-53920.patch") attrs.patches)
+          ++ prev.lib.optionals prev.stdenv.isDarwin [ ./emacs/patches/nsthread.patch ];
 
         nativeBuildInputs = attrs.nativeBuildInputs ++ [
           prev.autoreconfHook
