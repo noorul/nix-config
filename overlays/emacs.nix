@@ -44,21 +44,17 @@ final: prev: {
         # previously applied) patch detected" -- drop it by name.
         patches =
           (builtins.filter (p: (p.name or "") != "CVE-2024-53920.patch") attrs.patches)
-          ++ prev.lib.optionals prev.stdenv.isDarwin [ ./emacs/patches/nsthread.patch ];
+          ++ prev.lib.optionals prev.stdenv.hostPlatform.isDarwin [ ./emacs/patches/nsthread.patch ];
 
-        nativeBuildInputs = attrs.nativeBuildInputs ++ [
-          prev.autoreconfHook
-          prev.autoconf
-          prev.automake
-          prev.pkg-config
-        ];
-
-        # A raw git checkout has no generated configure script, and native
-        # comp's extra load commands need more headerpad room to relink on
-        # Darwin during fixup.
-        preConfigure = ''
-          sed -i -e 's/headerpad_extra=1000/headerpad_extra=2000/' configure.ac
-          autoreconf
+        # Native comp's extra load commands need more headerpad room to
+        # relink on Darwin during fixup. Done in postPatch so the base
+        # derivation's autoreconfHook (already present, since a raw git
+        # checkout has no generated configure script) regenerates configure
+        # from the edited configure.ac. --replace-fail so an upstream rename
+        # breaks the build instead of silently skipping the bump.
+        postPatch = (attrs.postPatch or "") + ''
+          substituteInPlace configure.ac \
+            --replace-fail 'headerpad_extra=1000' 'headerpad_extra=2000'
         '';
       });
 }
