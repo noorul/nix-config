@@ -36,6 +36,8 @@ in
   home.sessionPath = [
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
+    # Where `npm install -g` puts its binaries; see NPM_CONFIG_PREFIX below.
+    "${config.home.homeDirectory}/.npm-global/bin"
   ];
 
   home.sessionVariables = {
@@ -47,6 +49,12 @@ in
     # can be found for the language en_US". Matches jwiegley/nix-config's
     # config/johnw.nix.
     ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
+    # npm's default global prefix is node's own install prefix, which for
+    # nixpkgs' nodejs is a read-only /nix/store path, so `npm install -g`
+    # fails with EACCES. Redirect it to a writable dir in $HOME. Set via env
+    # rather than a home-manager-managed ~/.npmrc so that file stays
+    # writable for `npm login` / `npm config set`.
+    NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";
   };
 
   xdg.configFile."aspell/config".text = ''

@@ -31,6 +31,7 @@ in
     # glibtool is nixpkgs' GNU libtool built with --program-prefix=g,
     # matching Homebrew's naming convention for exactly this reason.
     glibtool
+    nodejs
 
     # ── Accounting ────────────────────────────────────────────────────
     ledger
