@@ -13,6 +13,12 @@
   nix.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Numtide's cache for the llm-agents flake (claude-code, codex, ...).
+  nix.settings.extra-substituters = [ "https://cache.numtide.com" ];
+  nix.settings.extra-trusted-public-keys = [
+    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+  ];
+
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
