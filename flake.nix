@@ -27,8 +27,7 @@
     };
 
     # Fast-moving AI agent CLIs (claude-code et al.), updated more often
-    # than nixpkgs' own packaging. Matches jwiegley/nix-config's use of
-    # this same flake for the same reason.
+    # than nixpkgs' own packaging.
     #
     # Deliberately no `inputs.nixpkgs.follows`: llm-agents' binary cache
     # (cache.numtide.com, see config/darwin.nix) only hits when built against

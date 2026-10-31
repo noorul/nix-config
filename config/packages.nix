@@ -1,10 +1,9 @@
 { pkgs, agentPackages, ... }:
 with pkgs;
 let
-  # Matches jwiegley/nix-config's optAgent: a package sourced from
-  # agentPackages (the numtide/llm-agents.nix flake) may not exist for
-  # every system/revision, so degrade to an empty list instead of an
-  # eval failure if it's missing.
+  # A package sourced from agentPackages (the numtide/llm-agents.nix flake)
+  # may not exist for every system/revision, so degrade to an empty list
+  # instead of an eval failure if it's missing.
   optAgent = name: if agentPackages ? ${name} then [ agentPackages.${name} ] else [ ];
 
   # pdf-tools' epdfinfo server, built by Nix against nixpkgs' poppler.
@@ -30,8 +29,7 @@ let
   };
 in
 {
-  # Organized the way jwiegley/nix-config does it: one list, banner-commented
-  # by theme, rather than one undifferentiated dump.
+  # One list, banner-commented by theme, rather than one undifferentiated dump.
   package-list = [
 
     # ── Search & Text Processing ─────────────────────────────────────

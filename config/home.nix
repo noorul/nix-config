@@ -24,15 +24,13 @@ in
   home.homeDirectory = "/Users/${username}";
   home.stateVersion = "24.11";
 
-  # Package list lives in its own file (packages.nix), matching
-  # jwiegley/nix-config's structure, rather than inlined here.
+  # Package list lives in its own file (packages.nix) rather than inlined here.
   home.packages = packages.package-list;
 
   # Homebrew's own bin dirs, so brew-installed binaries are on PATH without
   # needing an imperative `eval "$(brew shellenv)"` in ~/.zprofile -- which
   # home-manager would overwrite anyway, since it manages that file once
-  # programs.zsh.enable is on. Matches jwiegley/nix-config's config/johnw.nix
-  # (home.sessionPath's "/opt/homebrew/bin" entry).
+  # programs.zsh.enable is on.
   home.sessionPath = [
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
@@ -46,8 +44,7 @@ in
     # aspell and aspellDicts.en are separate Nix packages that don't know
     # about each other by default; point aspell at an explicit config file
     # that wires the dictionary in, or Flyspell fails with "No word lists
-    # can be found for the language en_US". Matches jwiegley/nix-config's
-    # config/johnw.nix.
+    # can be found for the language en_US".
     ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
     # npm's default global prefix is node's own install prefix, which for
     # nixpkgs' nodejs is a read-only /nix/store path, so `npm install -g`
@@ -65,10 +62,9 @@ in
   '';
 
   # Nix-native replacement for the mactex Homebrew cask -- scheme-full is
-  # the same scope as MacTeX itself, not a lighter substitute. Matches
-  # jwiegley/nix-config's config/johnw.nix. Emits a deprecation warning
-  # (texlive.combine -> texliveSmall.withPackages, removed in nixpkgs
-  # 27.05) since home-manager hasn't migrated this module yet -- harmless
+  # the same scope as MacTeX itself, not a lighter substitute. Emits a
+  # deprecation warning (texlive.combine -> texliveSmall.withPackages, removed
+  # in nixpkgs 27.05) since home-manager hasn't migrated this module yet -- harmless
   # for now, revisit once upstream updates it.
   programs.texlive = {
     enable = true;

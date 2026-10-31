@@ -60,7 +60,6 @@
       # Do not add Homebrew Bundle's generic `--force`: it is forwarded to
       # installs as `--force/--overwrite`, replacing cask app bundles while
       # retaining their user state (which can corrupt in-app updater state).
-      # Matches jwiegley/nix-config's config/darwin.nix.
       cleanup = "uninstall";
     };
 

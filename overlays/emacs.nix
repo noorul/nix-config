@@ -1,10 +1,9 @@
 # overlays/emacs.nix
 # Purpose: Build Emacs from live upstream trunk (emacs-mirror/emacs) with
-#          native compilation enabled. Unlike jwiegley/nix-config's
-#          `emacsHEAD` (an -O0/--enable-checking debug build for Emacs core
-#          development), this is a normal optimized build for daily use.
-#          It does NOT rebuild any third-party Elisp packages as Nix
-#          derivations -- package management is left to the user's own
+#          native compilation enabled. This is a normal optimized build for
+#          daily use, not an -O0/--enable-checking debug build for Emacs core
+#          development. It does NOT rebuild any third-party Elisp packages as
+#          Nix derivations -- package management is left to the user's own
 #          dot-emacs config (straight.el/package.el) at runtime.
 { emacs-src }:
 final: prev: {
