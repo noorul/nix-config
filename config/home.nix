@@ -96,4 +96,15 @@ in
       git_status.disabled = true;
     };
   };
+
+  programs.fzf = {
+    enable = true;
+    defaultOptions = [
+      "--height 40%"
+      "--layout=reverse"
+      "--info=inline"
+      "--border"
+      "--exact"
+    ];
+  };
 }
