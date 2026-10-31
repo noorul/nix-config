@@ -107,4 +107,6 @@ in
       "--exact"
     ];
   };
+
+  programs.zoxide.enable = true;
 }
