@@ -74,4 +74,26 @@ in
   };
 
   programs.uv.enable = true;
+
+  # Shell integrations. Each module hooks itself into programs.zsh (above) by
+  # default, so no enableZshIntegration is needed.
+  #
+  # No nerd-font-symbols preset for starship: fonts.packages (config/darwin.nix)
+  # has no Nerd Font to render those glyphs.
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+      scan_timeout = 50;
+      follow_symlinks = false;
+      command_timeout = 1000;
+
+      # Modules on their own line, then directory and prompt character.
+      format = "($all\n)$directory$character";
+
+      line_break.disabled = true;
+
+      git_status.disabled = true;
+    };
+  };
 }
