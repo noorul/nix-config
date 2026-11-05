@@ -61,6 +61,11 @@ in
     repl ${config.xdg.configHome}/aspell/en_US.repl
   '';
 
+  xdg.configFile."ledger/ledgerrc".text = ''
+    --file ${config.home.homeDirectory}/github.com/noorul/notebook/finance/accounts.dat
+    --price-db ${config.home.homeDirectory}/github.com/noorul/notebook/finance/pricedb.dat
+  '';
+
   # Nix-native replacement for the mactex Homebrew cask -- scheme-full is
   # the same scope as MacTeX itself, not a lighter substitute. Emits a
   # deprecation warning (texlive.combine -> texliveSmall.withPackages, removed
